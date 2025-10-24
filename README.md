@@ -10,18 +10,22 @@
 * **Data Input**: Easily handles new data and sensors.
 * **Hardware Support via Plugins**: Supports new hardware through plugins for API endpoints and specific robot hardware connections to `ROS2`, `Zenoh`, and `CycloneDDS`. (We recommend `Zenoh` for all new development).
 * **Web-Based Debugging Display**: Monitor the system in action with WebSim (available at http://localhost:8000/) for easy visual debugging.
-* **Pre-configured Endpoints**: Supports Voice-to-Speech, OpenAI’s `gpt-4o`, DeepSeek, and multiple Visual Language Models (VLMs) with pre-configured endpoints for each service.
+* ** Pre-configured Endpoints: Supports Speech-to-Text (STT) and Text-to-Speech (TTS), OpenAI’s `gpt-4o`, DeepSeek, and multiple Visual Language Models (VLMs) with pre-configured endpoints for each service.
+
 
 ## Architecture Overview
   ![Artboard 1@4x 1 (1)](https://github.com/user-attachments/assets/14e9b916-4df7-4700-9336-2983c85be311)
 
 ## Getting Started - Hello World
 
-To get started with OM1, let's run the Spot agent. Spot uses your webcam to capture and label objects. These text captions are then sent to `OpenAI 4o`, which returns `movement`, `speech` and `face` action commands. These commands are displayed on WebSim along with basic timing and other debugging information.
+To get started with OM1, let's run the Spot agent. Spot uses your webcam to capture and label objects. These text captions are then sent to OpenAI’s `gpt-4o`, ..., which returns `movement`, `speech` and `face` action commands. These commands are displayed on WebSim along with basic timing and other debugging information.
 
 ### Package Management and VENV
 
 You will need the [`uv` package manager](https://docs.astral.sh/uv/getting-started/installation/).
+# Install uv (macOS/Linux)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Sau đó mở lại terminal (hoặc source shell profile) rồi tiếp tục bước "Clone the Repo".
 
 ### Clone the Repo
 
@@ -34,7 +38,7 @@ uv venv
 
 ### Install Dependencies
 
-For MacOS  
+For macOS  
 ```bash
 brew install portaudio ffmpeg
 ```
@@ -42,7 +46,8 @@ brew install portaudio ffmpeg
 For Linux  
 ```bash
 sudo apt-get update
-sudo apt-get install portaudio19-dev python-dev ffmpeg
+sudo apt-get install portaudio19-dev python3-dev ffmpeg
+
 ```
 
 ### Obtain an OpenMind API Key
@@ -86,8 +91,8 @@ OM1 can interface with your HAL via USB, serial, ROS2, CycloneDDS, Zenoh, or web
 OM1 is developed on:
 
 * Jetson AGX Orin 64GB (running Ubuntu 22.04 and JetPack 6.1)
-* Mac Studio with Apple M2 Ultra with 48 GB unified memory (running MacOS Sequoia)
-* Mac Mini with Apple M4 Pro with 48 GB unified memory (running MacOS Sequoia)
+* Mac Studio with Apple M2 Ultra with 48 GB unified memory (running macOS Sequoia)
+* Mac Mini with Apple M4 Pro with 48 GB unified memory (running macOS Sequoia)
 * Generic Linux machines (running Ubuntu 22.04)
 
 OM1 _should_ run on other platforms (such as Windows) and microcontrollers such as the Raspberry Pi 5 16GB.
@@ -103,7 +108,7 @@ We're excited to introduce **full autonomy mode**, where three services work tog
 
 ## Intro to Backpack?
 From research to real-world autonomy, a platform that learns, moves, and builds with you.
-We'll shortly be releasing the **BOM** and details on **DIY** for the it. 
+We’ll shortly be releasing the Bill of Materials (BOM) and DIY details for it.
 Stay tuned!
 
 Clone the following repos -
